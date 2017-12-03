@@ -1,0 +1,19 @@
+/****************************
+인기 게시물 탭
+****************************/
+.popular-loop-box {
+  display: table-cell;
+  vertical-align: bottom;
+  float: none;
+}
+.popular-loop-img {
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  width: calc(100% - 30px);
+  height: 100%;
+  background-position: top;
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+  filter: blur(1px) grayscale(80%) opacity(50%);
+}
