@@ -1,0 +1,25 @@
+@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
+@import url(//fonts.googleapis.com/earlyaccess/nanumgothiccoding.css);
+@import url(//fonts.googleapis.com/earlyaccess/nanummyeongjo.css);
+
+html, body {font-family: 'Noto Sans KR', sans-serif;}
+article.serif {font-family: 'Nanum Myeongjo', serif;}
+.title  {color: #000000;}
+.title a{color: #000000;}
+
+.sans {font-family: 'Noto Sans KR', sans-serif;}
+.sans-w1 {font-family: 'Noto Sans KR', sans-serif; font-weight: 100;}
+.sans-w3 {font-family: 'Noto Sans KR', sans-serif; font-weight: 300;}
+.sans-w4 {font-family: 'Noto Sans KR', sans-serif; font-weight: 400;}
+.sans-w5 {font-family: 'Noto Sans KR', sans-serif; font-weight: 500;}
+.sans-w7 {font-family: 'Noto Sans KR', sans-serif; font-weight: 700;}
+.sans-w9 {font-family: 'Noto Sans KR', sans-serif; font-weight: 900;}
+
+.serf {font-family: 'Nanum Myeongjo', serif;}
+.serf-w4 {font-family: 'Nanum Myeongjo', serif; font-weight: 400;}
+.serf-w6 {font-family: 'Nanum Myeongjo', serif; font-weight: 600;}
+.serf-w7 {font-family: 'Nanum Myeongjo', serif; font-weight: 700;}
+
+.code {font-family: 'Nanum Gothic Coding', sans-serif;}
+.code-w4 {font-family: 'Nanum Gothic Coding', sans-serif; font-weight: 400;}
+.code-w7 {font-family: 'Nanum Gothic Coding', sans-serif; font-weight: 700;}
