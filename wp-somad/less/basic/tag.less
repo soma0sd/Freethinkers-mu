@@ -1,0 +1,181 @@
+// main: ./main.less
+
+a {
+  text-decoration: none;
+}
+
+main {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100vh;
+  overflow-y: scroll;
+  &>#content>section:first-child {
+    // margin-top: 50px;
+  }
+  &::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+  &::-webkit-scrollbar {
+    width: 5px;
+    background-color: transparent;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: #888;
+  }
+}
+
+article {
+  counter-reset: section;
+  background: #FFF;
+  min-height: 90vh;
+  padding: 5px;
+  padding-top: 55px;
+  width: 100%;
+  max-width: 800px;
+  margin: auto;
+  box-sizing: border-box;
+  h1::before {
+    counter-reset: subsection;
+    counter-increment: section;
+    content: counter(section, upper-roman) ".";
+    font-family: 'Nanum Myeongjo', serif;
+    font-weight: bold;
+    margin-right: 10px;
+  }
+  h2::before {
+    counter-increment: subsection;
+    content: counter(section) "." counter(subsection) ".";
+    font-weight: bold;
+    margin-right: 10px;
+  }
+}
+
+h1 {
+  text-align: center;
+  font-size: 1.5em;
+}
+h2 {border-bottom: #AAA 2px solid;}
+h3 {font-size: 1.5em;}
+h4 {font-size: 1.3em;}
+h5 {font-size: 1.0em;}
+h6 {font-size: 0.8em;}
+
+blockquote {
+  margin: 5px 10px;
+  padding: 5px;
+  background: #BBDEFB;
+  border-radius: 5px;
+  .author {
+    font-family: 'Nanum Myeongjo', serif;
+    display: inline-block;
+    margin-top: 10px;
+    text-align: right;
+    font-style: italic;
+    font-weight: bold;
+  }
+}
+
+table {
+  border-spacing: 0;
+  border-top: #000 2px solid;
+  border-bottom: #000 2px solid;
+  width: 100%;
+  th,td {padding: 10px 5px;}
+}
+thead th {border-bottom: #000 2px solid;}
+tbody th {border-right:  #000 1px solid;}
+
+dl {
+  dt {
+    font-weight: bold;
+    margin-top: 0.5em;
+  }
+  dd {margin: 0 0 0.5em 10px;}
+}
+
+ul,
+ol {
+  padding-left: 1.5em;
+}
+ul {
+  list-style: none;
+  li::before {
+    font-family: 'Material Icons';
+    font-size: 1em;
+    margin-right: 5px;
+  }
+  li::before {content: "label";}
+  li>ul>li::before {content: "label_outline";}
+  li>ul>li>ul>li::before {content: "play_arrow";}
+}
+
+address {
+  font-style: normal;
+  &::before {
+    font-family: 'Material Icons';
+    content: 'location_city';
+    font-size: 1em;
+    margin-right: 5px;
+  }
+}
+
+code {
+  font-family: 'Nanum Gothic Coding';
+  width: auto;
+  max-width: 100%;
+  box-sizing: border-box;
+  overflow-x: auto;
+  display: inline-block;
+  background: #000;
+  color: #DDD;
+  font-size: .8em;
+  line-height: 1em;
+  padding: 5px 2px 0px 2px;
+  border-radius: 4px;
+  vertical-align: middle;
+  &::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+  &::-webkit-scrollbar {
+    display: block !important;
+    height: 5px;
+    background-color: transparent;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: #888;
+  }
+}
+pre {
+  width: 100%;
+  padding: 5px;
+  box-sizing: border-box;
+  overflow-x: auto;
+  display: inline-block;
+  background: #DDD;
+  &::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+  &::-webkit-scrollbar {
+    display: block !important;
+    height: 5px;
+    background-color: transparent;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: #888;
+  }
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  &+.wp-caption-text {
+    margin: 0;
+    text-align: center;
+    color: #666;
+    font-weight: bold;
+  }
+  .alignleft {
+    float: left;
+  }
+}
