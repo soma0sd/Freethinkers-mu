@@ -20,6 +20,7 @@ class S0_Walker_Nav extends Walker_Nav_Menu {
 
     $classes = apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item, $args, $depth );
     $classes[] = ( $depth ) ? 'sub-item' : 'front-item';
+    $classes[] = 'no-padding';
 		$class_names = join( ' ', $classes );
 		$class_names = $class_names ? ' class="' . esc_attr( $class_names ) . '"' : '';
 
@@ -49,11 +50,12 @@ class S0_Walker_Nav extends Walker_Nav_Menu {
 
     if (in_array('front-item', $classes)) {
       if (in_array('menu-item-has-children', $classes)) {
-        $item_output .= '<a class="submenu-control">';
+        $item_output .= '<div class="collapsible-header">';
+        $item_output .= '<a>';
         $item_output .= '<i class="material-icons icon">folder</i>';
       } else {
         $item_output .= '<a'. $attributes .'>';
-        $item_output .= '<i class="material-icons icon">insert_drive_file</i>';
+        $item_output .= '<i class="material-icons">insert_drive_file</i>';
       }
     } else {
       $item_output .= '<a'. $attributes .'>';
@@ -62,7 +64,10 @@ class S0_Walker_Nav extends Walker_Nav_Menu {
 		$item_output .= $args->link_before . $title . $args->link_after;
 
     if (in_array('menu-item-has-children', $classes)) {
-      $item_output .= '<i class="material-icons drop-down">arrow_drop_down</i>';
+      $item_output .= '<i class="material-icons right">arrow_drop_down</i>';
+      $item_output .= '</div><div class="collapsible-body">';
+    } else {
+
     }
 
 		$item_output .= '</a>';
@@ -71,6 +76,8 @@ class S0_Walker_Nav extends Walker_Nav_Menu {
 		$output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
   }
   function end_el( &$output, $item, $depth = 0, $args = array() ) {
+    $classes = empty( $item->classes ) ? array() : (array) $item->classes;
+    $classes = apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item, $args, $depth );
 		if ( isset( $args->item_spacing ) && 'discard' === $args->item_spacing ) {
 			$t = '';
 			$n = '';
@@ -78,6 +85,9 @@ class S0_Walker_Nav extends Walker_Nav_Menu {
 			$t = "\t";
 			$n = "\n";
 		}
+    if (in_array('menu-item-has-children', $classes)) {
+      $item_output .= '</div>';
+    }
 		$output .= "</li>{$n}";
 	}
 }

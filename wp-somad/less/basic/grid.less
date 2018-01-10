@@ -1,0 +1,77 @@
+//main: ./main.less
+@mobile:   ~"(max-width:600px)";
+@Tablet:   ~"(min-width:601px)";
+@Desktop:  ~"(min-width:992px)";
+@DesktopL: ~"(min-width:1200px)";
+
+// (s)  Mobile Devices <= 600px
+// (m)  Tablet Devices > 600px
+// (l)  Desktop Devices > 992px
+// (xl) Large Desktop Devices > 1200px
+
+@iter: 12;
+
+.grid-loop (@i, @j) when (@j > 0) {
+  &.@{i}@{j} .col {
+    padding-top: ( 100% * (@j / 12) );
+  }
+  .grid-loop(@i, @j - 1);
+}
+
+.row {
+  .grid-loop(s, @iter);
+  @media @Tablet {
+    .grid-loop(m, @iter);
+  }
+  @media @Desktop {
+    .grid-loop(l, @iter);
+  }
+  @media @DesktopL {
+    .grid-loop(xl, @iter);
+  }
+}
+.row.box {
+  .col {
+    position: relative;
+  }
+  .col>div{
+    position: absolute;
+    top: 0; bottom: 0;
+    left: 0; right: 0;
+    overflow: hidden;
+    margin: 0.2rem;
+  }
+}
+
+article {
+  h1{font-size: 1.5rem;}
+  h2{font-size: 1.5rem;}
+  h3{font-size: 1.2rem;}
+  h4{font-size: 1.0rem;}
+  h5{font-size: 1.0rem; color: RGBA(0,0,0,.6);}
+  h6{font-size: 1.0rem; color: RGBA(0,0,0,.4);}
+  @media @Tablet {
+    h1{font-size: 2.0rem;}
+    h2{font-size: 2.0rem;}
+    h3{font-size: 1.8rem;}
+    h4{font-size: 1.6rem;}
+    h5{font-size: 1.6rem;}
+    h6{font-size: 1.6rem;}
+  }
+  @media @Desktop {
+    h1{font-size: 3.0rem;}
+    h2{font-size: 3.0rem;}
+    h3{font-size: 2.8rem;}
+    h4{font-size: 2.6rem;}
+    h5{font-size: 2.6rem;}
+    h6{font-size: 2.6rem;}
+  }
+  @media @DesktopL {
+    h1{font-size: 4.2rem;}
+    h2{font-size: 4.2rem;}
+    h3{font-size: 4.0rem;}
+    h4{font-size: 3.8rem;}
+    h5{font-size: 3.8rem;}
+    h6{font-size: 3.8rem;}
+  }
+}
